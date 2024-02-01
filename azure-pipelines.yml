@@ -20,15 +20,11 @@ steps:
   inputs:
     restoreSolution: '**/*.sln'
 
-- task: XamarinAndroid@1
-  inputs:
-    projectFile: '**/*droid*.csproj'
-    outputDirectory: '$(outputDirectory)'
-    configuration: '$(buildConfiguration)'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: PKHeX.Mobile'
+- task: XamariniOS@2
   inputs:
-    pathtoPublish: '$(outputDirectory)'
-    ArtifactName: PKHeX.Android
-  condition: succeededOrFailed()
+    solutionFile: '**/*.sln'
+    configuration: 'Debug'
+    packageApp: true
+    buildForSimulator: true
+    runNugetRestore: true
