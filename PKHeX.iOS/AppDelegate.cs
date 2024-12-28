@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Syncfusion.SfNumericTextBox.XForms.iOS;
 using UIKit;
 
 namespace PKHeX.iOS
@@ -19,9 +20,12 @@ namespace PKHeX.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
-            Xamarin.Forms.Forms.Init();
+            global::Xamarin.Forms.Forms.Init();
 
             Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
+            Syncfusion.XForms.iOS.Accordion.SfAccordionRenderer.Init();
+            Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer.Init();
+            new SfNumericTextBoxRenderer();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
             LoadApplication(new App());
